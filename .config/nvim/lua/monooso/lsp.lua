@@ -73,29 +73,7 @@ M.setup = function()
 
   require('lspconfig')['bashls'].setup(extend_server_config())
   require('lspconfig')['elixirls'].setup(extend_server_config())
-
-  require('lspconfig')['sumneko_lua'].setup(extend_server_config({
-    settings = {
-      Lua = {
-        diagnostics = {
-          enable = true,
-          globals = { 'use', 'vim' }
-        },
-        runtime = {
-          path = vim.split(package.path, ';'),
-          version = 'LuaJIT'
-        },
-        telemetry = { enable = false },
-        workspace = {
-          -- Make the server aware of the Neovim runtime files
-          library = vim.api.nvim_get_runtime_file('', true)
-        }
-      }
-    }
-  }))
-
   require('lspconfig')['tailwindcss'].setup(extend_server_config())
-
   require('lspconfig')['vimls'].setup(extend_server_config())
 end
 
