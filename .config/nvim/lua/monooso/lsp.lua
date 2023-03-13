@@ -74,7 +74,7 @@ M.setup = function()
   require('lspconfig')['bashls'].setup(extend_server_config())
   require('lspconfig')['elixirls'].setup(extend_server_config())
 
-  require('lspconfig')['lua_ls'].setup(extend_server_config({
+  require('lspconfig')['sumneko_lua'].setup(extend_server_config({
     settings = {
       Lua = {
         diagnostics = {
