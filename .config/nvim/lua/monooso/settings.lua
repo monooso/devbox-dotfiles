@@ -100,7 +100,7 @@ M.setup = function()
     vim.cmd [[colorscheme rose-pine]]
   end
 
-  -- rose_pine()
+  rose_pine()
 
   -- Highlight text when yanking. Surprisingly helpful, and no longer requires a plugin.
   local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
