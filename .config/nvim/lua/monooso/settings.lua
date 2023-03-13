@@ -54,7 +54,7 @@ M.setup = function()
   o.cmdheight = false
 
   -- Set the colour scheme. Encapsulate everything in functions because I inevitably switch.
-  o.background = 'dark'
+  o.background = 'light'
   o.termguicolors = true
 
   -- Set colour scheme to Solarized Light.
@@ -100,7 +100,7 @@ M.setup = function()
     vim.cmd [[colorscheme rose-pine]]
   end
 
-  rose_pine()
+  -- rose_pine()
 
   -- Highlight text when yanking. Surprisingly helpful, and no longer requires a plugin.
   local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
