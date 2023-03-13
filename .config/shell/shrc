@@ -1,0 +1,4 @@
+#!sh
+
+# Source aliases
+. $XDG_CONFIG_HOME/shell/aliases
