@@ -65,6 +65,12 @@ local function extend_server_config(config)
   }, config or {})
 end
 
+local function require_if_supported(executable, lsp_name, config)
+  if vim.fn.executable(executable) == 1 then
+    require('lspconfig')[lsp_name].setup(extend_server_config(config))
+  end
+end
+
 M.setup = function()
   -- Automatically install the servers required via LSP Config (below).
   -- Not convinced the main Mason setup belongs here, but don't have a better place.
@@ -72,9 +78,11 @@ M.setup = function()
   require('mason-lspconfig').setup({ automatic_installation = true })
 
   require('lspconfig')['bashls'].setup(extend_server_config())
-  require('lspconfig')['elixirls'].setup(extend_server_config())
-  require('lspconfig')['tailwindcss'].setup(extend_server_config())
   require('lspconfig')['vimls'].setup(extend_server_config())
+
+  require_if_supported('elixir', 'elixirls')
+  require_if_supported('node', 'tailwindcss')
+  require_if_supported('php', 'intelephense')
 end
 
 return M
